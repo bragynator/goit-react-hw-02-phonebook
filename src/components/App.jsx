@@ -12,12 +12,11 @@ export class App extends Component {
 
   hadleFormSubmit = data => {
     const { name, number } = data;
+    const addedToContacts = this.state.contacts.find(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
+    );
 
-    if (
-      this.state.contacts.find(
-        contact => contact.name.toLowerCase() === name.toLowerCase()
-      )
-    ) {
+    if (addedToContacts) {
       alert(`${name} is already in contacts!`);
       return;
     }
